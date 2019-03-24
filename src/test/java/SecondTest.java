@@ -10,8 +10,8 @@ import org.openqa.selenium.Keys;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Второй тест.
- * Проверка сообщений о неправильном заполнении полей формы.
+ * Второй тест, задание 2.2.
+ * Проверка сообщений о неправильном заполнении полей формы (невалидные значения).
  *
  * @author Ivan Zherdev
  */
@@ -31,6 +31,7 @@ public class SecondTest extends BaseRunner {
 
         driver.findElement(By.name("name")).click();
         driver.findElement(By.name("name")).clear();
+        /* В Chrome не действует .clear() */
         for (int i = 0; i < 20; i++) {
             driver.findElement(By.name("name")).sendKeys(Keys.BACK_SPACE);
         }
