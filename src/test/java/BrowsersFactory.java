@@ -24,7 +24,7 @@ public enum BrowsersFactory {
         public WebDriver create() {
             updateProperty("firefox");
             System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
-            System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "./src/test/java/firefox_logs/log");
+            System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "./src/test/resources/firefox_log.log");
             FirefoxOptions options = new FirefoxOptions();
             options.addPreference("dom.webnotifications.enabled", false);
 
