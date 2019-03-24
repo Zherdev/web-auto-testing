@@ -1,7 +1,7 @@
 /*
- BrowsersFactory
-
- Ivan Zherdev, 2019
+ * BrowsersFactory
+ *
+ * Ivan Zherdev, 2019
  */
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,7 +16,7 @@ public enum BrowsersFactory {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--disable-notifications");
 
-            return  new ChromeDriver(options);)
+            return  new ChromeDriver(options);
         }
     },
 
@@ -31,6 +31,10 @@ public enum BrowsersFactory {
             return new FirefoxDriver(options);
         }
     };
+
+    public WebDriver create() {
+        return null;
+    }
 
     void updateProperty(String browserName) {
         System.out.println("Запускаем браузер " + browserName + "...");

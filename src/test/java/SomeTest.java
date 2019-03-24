@@ -1,40 +1,29 @@
 /*
- SomeTest
-
- Ivan Zherdev, 2019
+ * SomeTest
+ *
+ * Ivan Zherdev, 2019
  */
 
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
-import static org.junit.Assert.*;
-
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Класс под тесты
  *
  * @author Ivan Zherdev
  */
-public class SomeTest {
-    private WebDriver driver;
-    private String baseUrl;
-
-    @Before
-    public void setUp() {
-        driver = new FirefoxDriver();
-        baseUrl = "https://www.tinkoff.ru/career/vacancies/";
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    }
+public class SomeTest extends BaseRunner {
 
     /**
      * Проверка сообщений о незаполненных полях формы.
      */
     @Test
     public void test1() {
-        driver.get("https://www.tinkoff.ru/career/vacancies/");
+        System.out.println("Первый тест.");
+        driver.get(baseUrl);
 
         driver.findElement(By.name("name")).click();
         driver.findElement(By.name("name")).clear();
@@ -97,7 +86,8 @@ public class SomeTest {
      */
     @Test
     public void test2() {
-        driver.get("https://www.tinkoff.ru/career/vacancies/");
+        System.out.println("Второй тест.");
+        driver.get(baseUrl);
 
         driver.findElement(By.name("name")).click();
         driver.findElement(By.name("name")).clear();
@@ -168,8 +158,5 @@ public class SomeTest {
                 .findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Мобильный телефон'])[1]/following::div[2]")).getText());
     }
 
-    @After
-    public void tearDown() {
-        driver.quit();
-    }
+
 }
