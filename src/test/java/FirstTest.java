@@ -1,5 +1,5 @@
 /*
- * ThirdTest
+ * FirstTest
  *
  * Ivan Zherdev, 2019
  */
