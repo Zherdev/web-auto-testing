@@ -14,7 +14,6 @@ tmp/**
 tmp/**/*
 *.tmp
 *.bak
-*.log
 local.properties
 .classpath
 .settings/
