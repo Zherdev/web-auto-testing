@@ -14,7 +14,7 @@ WebAutoTesting
 ```
 mvn -Dtest=FirstTest,SecondTest -Dbrowser=chrome test
 ```
-и команду:
+или команду:
 
 ```
 mvn -Dtest=FirstTest,SecondTest -Dbrowser=firefox test
@@ -28,7 +28,7 @@ mvn -Dtest=FirstTest,SecondTest -Dbrowser=firefox test
 mvn -Dtest=FirstTest,SecondTest -Dbrowser=opera -Dopera-binary=<PATH TO OPERA BINARY> test
 ```
 
-где <PATH TO OPERA BINARY> - путь к исполняемому файлу Opera.
+где PATH TO OPERA BINARY - путь к исполняемому файлу Opera.
 
 Например:
 
