@@ -1,8 +1,10 @@
 /*
- BaseRunner
-
- Ivan Zherdev, 2019
+ * BaseRunner
+ *
+ * Ivan Zherdev, 2019
  */
+
+package test;
 
 import org.junit.After;
 import org.junit.Before;
@@ -11,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Класс BaseRunner является родительским для всех тестов.
+ * Класс test.BaseRunner является родительским для всех тестов.
  *
  * @author Ivan Zherdev
  */

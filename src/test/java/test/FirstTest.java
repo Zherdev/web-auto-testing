@@ -3,15 +3,14 @@
  *
  * Ivan Zherdev, 2019
  */
+
+package test;
+
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import page.TinkoffVacanciesPage;
 
-import static org.junit.Assert.assertEquals;
-
 /**
- * Первый тест, ДЗ к лецкии 6, задание 2.1.
+ * Первый тест, ДЗ к лецкии 6, задание 2.1, Тинькофф Вакансии.
  * Прокликивание полей формы, проверка сообщений о незаполненных полях.
  *
  * @author Ivan Zherdev

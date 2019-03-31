@@ -34,6 +34,29 @@ public class Page {
     }
 
     /**
+     * Метод switchToWindow(String windowName) переключается на вкладку по имени.
+     *
+     * @param windowName имя вкладки
+     */
+    public void switchToWindow(String windowName){
+        wait.until(d -> {
+            boolean check = false;
+            for (String title : driver.getWindowHandles()) {
+                driver.switchTo().window(title);
+                check = d.getTitle().equals(windowName);
+            }
+            return check;
+        });
+    }
+
+    /**
+     * Метод switchToMainTab() переключает на главную (первую) вкладку.
+     */
+    public void switchToMainTab(){
+        driver.switchTo().window(driver.getWindowHandles().iterator().next());
+    }
+
+    /**
      * Метод typeValue(...) очищает поле и вводит в него значение.
      *
      * @param element элемент (поле для ввода)

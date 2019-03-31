@@ -12,12 +12,12 @@ WebAutoTesting
 Для запуска в браузере Chrome или Firefox выполните команду:
 
 ```
-mvn -Dtest=FirstTest,SecondTest -Dbrowser=chrome test
+mvn -Dtest=test.FirstTest,test.SecondTest -Dbrowser=chrome test
 ```
 или команду:
 
 ```
-mvn -Dtest=FirstTest,SecondTest -Dbrowser=firefox test
+mvn -Dtest=test.FirstTest,test.SecondTest -Dbrowser=firefox test
 ```
 
 соответственно.
@@ -25,7 +25,7 @@ mvn -Dtest=FirstTest,SecondTest -Dbrowser=firefox test
 Для запуска в Opera выполните команду:
 
 ```
-mvn -Dtest=FirstTest,SecondTest -Dbrowser=opera -Dopera-binary=<PATH TO OPERA BINARY> test
+mvn -Dtest=test.FirstTest,test.SecondTest -Dbrowser=opera -Dopera-binary=<PATH TO OPERA BINARY> test
 ```
 
 где PATH TO OPERA BINARY - путь к исполняемому файлу Opera.
@@ -33,7 +33,7 @@ mvn -Dtest=FirstTest,SecondTest -Dbrowser=opera -Dopera-binary=<PATH TO OPERA BI
 Например:
 
 ```
-mvn -Dtest=SecondTest -Dbrowser=opera -Dopera-binary=/usr/bin/opera test
+mvn -Dtest=test.SecondTest -Dbrowser=opera -Dopera-binary=/usr/bin/opera test
 ```
 запустит второй тест в браузере Opera.
 
