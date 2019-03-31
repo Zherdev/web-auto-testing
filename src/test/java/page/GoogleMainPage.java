@@ -6,9 +6,7 @@
 
 package page;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -30,6 +28,25 @@ public class GoogleMainPage extends Page {
     public void open() {
         driver.navigate().to("https://www.google.ru/");
         isLoadedByTitleContains("Google");
+    }
+
+    /**
+     * Метод typeResquest(...) вводит запрос в Google.
+     *
+     * @param request текст запроса
+     */
+    public void typeResquest(String request) {
+        wait.ignoring(StaleElementReferenceException.class)
+                .ignoring(ElementNotInteractableException.class)
+                .until(d -> {
+                    searchField.click();
+                    searchField.clear();
+                    /* В Chrome не действует .clear() */
+                    searchField.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                    searchField.sendKeys(Keys.BACK_SPACE);
+                    searchField.sendKeys(request);
+                    return true;
+                });
     }
 
     /**

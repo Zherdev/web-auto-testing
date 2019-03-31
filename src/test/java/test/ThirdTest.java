@@ -27,7 +27,7 @@ public class ThirdTest extends BaseRunner {
         GoogleMainPage googleMain = new GoogleMainPage(driver);
         googleMain.open();
 
-        googleMain.typeValue(googleMain.searchField, "мобайл тинькофф");
+        googleMain.typeResquest("мобайл тинькофф");
         googleMain.clickVariant("тарифы");
 
         GoogleResultsPage googleResults = new GoogleResultsPage(driver);
