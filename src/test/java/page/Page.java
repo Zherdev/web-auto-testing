@@ -56,4 +56,31 @@ public class Page {
         driver.switchTo().window(driver.getWindowHandles().iterator().next());
     }
 
+    /** Обновляет страницу */
+    public void refresh() {
+        driver.findElement(By.xpath("//body")).sendKeys(Keys.F5);
+    }
+
+    /**
+     * @deprecated используется в ДЗ к лекции 6
+     *
+     * Метод typeValue(...) очищает поле и вводит в него значение.
+     *
+     * @param element элемент (поле для ввода)
+     * @param value значение
+     */
+    public void typeValue(WebElement element, String value){
+        wait.ignoring(StaleElementReferenceException.class)
+                .ignoring(ElementNotInteractableException.class)
+                .until(d -> {
+                    element.click();
+                    element.clear();
+                    /* В Chrome не действует .clear() */
+                    element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                    element.sendKeys(Keys.BACK_SPACE);
+                    element.sendKeys(value);
+                    return true;
+                });
+    }
+
 }

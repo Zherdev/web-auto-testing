@@ -38,7 +38,7 @@ public class CheckBox {
      */
     public void setActive(Boolean status) {
         if (status != isSelected()) {
-            checkbox.click();
+            checkbox.findElement(By.xpath(".//..")).click();
         }
     }
 
