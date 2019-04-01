@@ -65,9 +65,10 @@ public class TinkoffTariffPage extends Page {
     }
 
     /** @return цену тарифа */
-    public String getPrice() {
-        return driver.findElement(By.xpath(
-                "//h3[contains(@class, '__amountTitle')]")).getText();
+    public int getPrice() {
+        return Integer.valueOf(driver.findElement(By.xpath(
+                "//h3[contains(@class, '__amountTitle')]"))
+                .getText().replaceAll("\\D+",""));
     }
 
     /** Метод chooseAll() выбирает максимальный тариф */
@@ -84,4 +85,26 @@ public class TinkoffTariffPage extends Page {
         modem.setActive(true);
         sms.setActive(true);
     }
+
+    /** Метод chooseNothing() выбирает минимальный тариф */
+    public void chooseNothing() {
+        Select internet = new Select(driver, "Интернет");
+        Select calls = new Select(driver, "Звонки");
+
+        internet.selectByText("0 ГБ");
+        calls.selectByText("0 минут");
+
+        CheckBox messengers = new CheckBox(driver, "Мессенджеры");
+        CheckBox sms = new CheckBox(driver, "Безлимитные СМС");
+        CheckBox social = new CheckBox(driver, "Социальные сети");
+        CheckBox music = new CheckBox(driver, "Музыка");
+        CheckBox video = new CheckBox(driver, "Видео");
+
+        messengers.setActive(false);
+        sms.setActive(false);
+        social.setActive(false);
+        music.setActive(false);
+        video.setActive(false);
+    }
+
 }

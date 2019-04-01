@@ -19,7 +19,12 @@ public class Button {
 
     public Button(WebDriver driver, String name) {
         button = driver.findElement(
-                By.xpath("//label[contains(text(), '" + name + "')]/..//input"));
+                By.xpath("//div[contains(text(), '" + name + "')]/../.."));
+    }
+
+    /** @return вкл/выкл */
+    public boolean isEnabled() {
+        return button.isEnabled();
     }
 
 }

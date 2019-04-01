@@ -10,8 +10,6 @@ import org.junit.Test;
 import page.GoogleMainPage;
 import page.GoogleResultsPage;
 
-import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
 
 /**

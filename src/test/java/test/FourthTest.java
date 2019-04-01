@@ -22,8 +22,8 @@ public class FourthTest extends BaseRunner {
 
     @Test
     public void test1() {
-        String moscowPrice;
-        String krasnodarPrice;
+        int moscowPrice;
+        int krasnodarPrice;
 
         TinkoffTariffPage tinkoffTariff = new TinkoffTariffPage(driver);
         tinkoffTariff.open();
