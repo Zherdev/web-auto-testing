@@ -1,43 +1,20 @@
-WebAutoTesting
-==============
+WebAutoTesting 1.1
+==================
 
-Содержит два теста для страницы [Вакансии](https://www.tinkoff.ru/career/vacancies/).
-Первый тест: прокликивание полей формы, проверка сообщений о незаполненных полях.
-Второй тест: ввод невалидных значений, проверка сообщений о неправильном заполнении полей.
+Содержит два теста из ДЗ к шестой лекции и три теста из ДЗ к седьмой лекции.
 
+* ThirdTest - задание 2.1
+* FourthTest - задание 2.2
+* FifthTest - задание 2.3
 
 Запуск
 ------
 
-Для запуска в браузере Chrome или Firefox выполните команду:
+Для запуска в браузере Chrome выполните команду:
 
 ```
-mvn -Dtest=test.FirstTest,test.SecondTest -Dbrowser=chrome test
+mvn -Dtest=test.ThirdTest,test.FourthTest,test.FifthTest -Dbrowser=chrome test
 ```
-или команду:
-
-```
-mvn -Dtest=test.FirstTest,test.SecondTest -Dbrowser=firefox test
-```
-
-соответственно.
-
-Для запуска в Opera выполните команду:
-
-```
-mvn -Dtest=test.FirstTest,test.SecondTest -Dbrowser=opera -Dopera-binary=<PATH TO OPERA BINARY> test
-```
-
-где PATH TO OPERA BINARY - путь к исполняемому файлу Opera.
-
-Например:
-
-```
-mvn -Dtest=test.SecondTest -Dbrowser=opera -Dopera-binary=/usr/bin/opera test
-```
-запустит второй тест в браузере Opera.
-
-
 Автор
 -----
 
