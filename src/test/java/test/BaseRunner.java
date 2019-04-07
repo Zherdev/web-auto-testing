@@ -6,6 +6,7 @@
 
 package test;
 
+import app.Application;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -18,20 +19,18 @@ import java.util.concurrent.TimeUnit;
  * @author Ivan Zherdev
  */
 public class BaseRunner {
-    protected WebDriver driver;
+
     protected String baseUrl;
-    public String browserName = System.getProperty("browser");
+    public Application app;
 
     @Before
     public void setUp() {
-        driver = BrowsersFactory.valueOf(browserName).create();
         baseUrl = "https://www.tinkoff.ru/career/vacancies/";
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        app = new Application();
     }
 
     @After
     public void tearDown() {
-        driver.quit();
+        app.quit();
     }
 }
