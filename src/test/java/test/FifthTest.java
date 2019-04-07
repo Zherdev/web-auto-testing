@@ -24,15 +24,14 @@ public class FifthTest extends BaseRunner {
     @Test
     public void test1() {
 
-        TinkoffTariffPage tinkoffTariff = new TinkoffTariffPage(driver);
+        TinkoffTariffPage tinkoffTariff = app.tinkoffTariff;
         tinkoffTariff.open();
 
         tinkoffTariff.chooseNothing();
 
         assertEquals(0, tinkoffTariff.getPrice());
 
-        Button button = new Button(driver, "Заказать сим-карту");
-        assertEquals(true, button.isEnabled());
+        assertEquals(true, tinkoffTariff.orderSimButton.isEnabled());
     }
 
 }

@@ -46,13 +46,17 @@ public class TinkoffVacanciesPage extends Page {
     }
 
     public void open() {
+        logger.info("Открываем Тинкофф Вакансии");
         driver.navigate().to("https://www.tinkoff.ru/career/vacancies/");
         isLoadedByTitleContains("Вакансии");
+        logger.info("done");
     }
 
     /** Клик никуда. */
     public void clickNothing() {
+        logger.info("Кликаем никуда");
         clickByXPath("//div[contains(@data-qa-file, 'CareerLayout')]");
+        logger.info("done");
     }
 
     /**
@@ -62,8 +66,10 @@ public class TinkoffVacanciesPage extends Page {
      * @param errorText текст ошибки
      */
     public void checkError(WebElement element, String errorText) {
+        logger.info("Проверяем ошибку " + errorText);
         assertEquals(errorText, element.findElement(
                 By.xpath(".//ancestor::div/div[contains(@data-qa-file, 'UIFormRowError')]")).getText());
+        logger.info("ok");
     }
 
 }

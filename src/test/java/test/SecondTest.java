@@ -19,7 +19,7 @@ public class SecondTest extends BaseRunner {
 
     @Test
     public void test1() {
-        TinkoffVacanciesPage tinkoffVacancies = new TinkoffVacanciesPage(driver);
+        TinkoffVacanciesPage tinkoffVacancies = app.tinkoffVacancies;
         tinkoffVacancies.open();
 
         tinkoffVacancies.typeValue(tinkoffVacancies.name, "123 abc ./#@");

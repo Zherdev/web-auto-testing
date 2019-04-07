@@ -26,8 +26,10 @@ public class GoogleMainPage extends Page {
     }
 
     public void open() {
+        logger.info("Открываем Google.ru");
         driver.navigate().to("https://www.google.ru/");
         isLoadedByTitleContains("Google");
+        logger.info("done");
     }
 
     /**
@@ -35,8 +37,9 @@ public class GoogleMainPage extends Page {
      *
      * @param request текст запроса
      */
-    public void typeResquest(String request) {
-        wait.ignoring(StaleElementReferenceException.class)
+    public void typeRequest(String request) {
+        logger.info("Ищем в Google: " + request);
+                wait.ignoring(StaleElementReferenceException.class)
                 .ignoring(ElementNotInteractableException.class)
                 .until(d -> {
                     searchField.click();
@@ -47,6 +50,7 @@ public class GoogleMainPage extends Page {
                     searchField.sendKeys(request);
                     return true;
                 });
+        logger.info("done");
     }
 
     /**
@@ -56,7 +60,9 @@ public class GoogleMainPage extends Page {
      * @param text содержание предложенного запроса
      */
     public void clickVariant(String text) {
+        logger.info("Выбираем вариант: " + text);
         driver.findElement(By.xpath("//b[text() = ' " + text + "']")).click();
+        logger.info("done");
     }
 
 }

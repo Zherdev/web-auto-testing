@@ -24,9 +24,11 @@ public class GoogleResultsPage extends Page {
     }
 
     public void clickSearchResultByLinkContains(String url) {
+        logger.info("Щелкаем по результату с URL " + url);
         Actions actions = new Actions(driver);
         WebElement link = driver.findElement(By.xpath("//cite[contains(text(), '" + url + "')]"));
         actions.moveToElement(link).keyDown(Keys.CONTROL).click().keyUp(Keys.CONTROL).perform();
+        logger.info("done");
     }
 
 }

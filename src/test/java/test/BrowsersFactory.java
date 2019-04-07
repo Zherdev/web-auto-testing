@@ -17,7 +17,6 @@ import org.openqa.selenium.opera.OperaOptions;
 public enum BrowsersFactory {
     chrome {
         public WebDriver create() {
-            System.out.println("Запускаем браузер Chrome...");
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--disable-notifications");
 
@@ -27,7 +26,6 @@ public enum BrowsersFactory {
 
     firefox {
         public WebDriver create() {
-            System.out.println("Запускаем браузер Firefox...");
             System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,
                                "true");
             System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,
@@ -41,7 +39,6 @@ public enum BrowsersFactory {
 
     opera {
         public WebDriver create() {
-            System.out.println("Запускаем браузер Opera...");
             OperaOptions options = new OperaOptions();
             options.setBinary(System.getProperty("opera-binary"));
             options.addArguments("--disable-notifications");

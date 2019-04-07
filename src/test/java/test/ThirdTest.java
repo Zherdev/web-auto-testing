@@ -22,26 +22,26 @@ public class ThirdTest extends BaseRunner {
 
     @Test
     public void test1() {
-        GoogleMainPage googleMain = new GoogleMainPage(driver);
+        GoogleMainPage googleMain = app.googleMain;
         googleMain.open();
 
-        googleMain.typeResquest("мобайл тинькофф");
+        googleMain.typeRequest("мобайл тинькофф");
         googleMain.clickVariant("тарифы");
 
-        GoogleResultsPage googleResults = new GoogleResultsPage(driver);
+        GoogleResultsPage googleResults = app.googleResults;
         googleResults.clickSearchResultByLinkContains(
                 "https://www.tinkoff.ru/mobile-operator/tariffs/");
 
         /* Переключаемся на открывшуюся вкладку */
-        driver.switchTo().window((String) driver.getWindowHandles().toArray()[1]);
+        googleResults.switchToWindowByNumber(1);
 
-        assertEquals(driver.getTitle(), "Тарифы Тинькофф Мобайла");
+        assertEquals(googleResults.getTitle(), "Тарифы Тинькофф Мобайла");
 
         googleResults.switchToMainTab();
-        driver.close();
+        googleResults.closeCurrentTab();
 
-        googleResults.switchToWindow("Тарифы Тинькофф Мобайла");
-        assertEquals(driver.getCurrentUrl(),
+        googleResults.switchToWindowByName("Тарифы Тинькофф Мобайла");
+        assertEquals(googleResults.getCurrentUrl(),
                 "https://www.tinkoff.ru/mobile-operator/tariffs/");
     }
 }

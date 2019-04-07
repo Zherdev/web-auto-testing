@@ -8,6 +8,8 @@ package app;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import page.GoogleMainPage;
 import page.GoogleResultsPage;
 import page.TinkoffTariffPage;
@@ -25,6 +27,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class Application {
 
+    Logger logger = LoggerFactory.getLogger(Application.class);
+
     private WebDriver driver;
 
     public GoogleMainPage googleMain;
@@ -36,6 +40,8 @@ public class Application {
             "chrome" : System.getProperty("browser");
 
     public Application() {
+        logger.info("Запускаем application");
+
         driver = new EventFiringWebDriver(getDriver());
         ((EventFiringWebDriver) driver).register(new CustomListener(Application.class));
         driver.manage().window().maximize();
@@ -50,9 +56,12 @@ public class Application {
     public void quit() {
         driver.quit();
         driver = null;
+
+        logger.info("Завершаем application");
     }
 
     private WebDriver getDriver() {
+        logger.info("Запускаем браузер " + browserName);
         return BrowsersFactory.valueOf(browserName).create();
     }
 

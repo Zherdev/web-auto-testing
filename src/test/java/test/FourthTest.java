@@ -25,7 +25,7 @@ public class FourthTest extends BaseRunner {
         int moscowPrice;
         int krasnodarPrice;
 
-        TinkoffTariffPage tinkoffTariff = new TinkoffTariffPage(driver);
+        TinkoffTariffPage tinkoffTariff = app.tinkoffTariff;
         tinkoffTariff.open();
 
         tinkoffTariff.setRegion("Москва");
@@ -33,7 +33,6 @@ public class FourthTest extends BaseRunner {
 
         tinkoffTariff.refresh();
         tinkoffTariff.checkRegion("Москва и Московская область");
-
 
 
         moscowPrice = tinkoffTariff.getPrice();
