@@ -7,6 +7,8 @@
 package test;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import page.GoogleMainPage;
 import page.GoogleResultsPage;
 
@@ -19,6 +21,8 @@ import static org.junit.Assert.assertEquals;
  * @author Ivan Zherdev
  */
 public class ThirdTest extends BaseRunner {
+
+    private Logger logger = LoggerFactory.getLogger(ThirdTest.class);
 
     @Test
     public void test1() {
@@ -36,6 +40,7 @@ public class ThirdTest extends BaseRunner {
         googleResults.switchToWindowByNumber(1);
 
         assertEquals(googleResults.getTitle(), "Тарифы Тинькофф Мобайла");
+        logger.info("Проверили заголовок");
 
         googleResults.switchToMainTab();
         googleResults.closeCurrentTab();
@@ -43,5 +48,6 @@ public class ThirdTest extends BaseRunner {
         googleResults.switchToWindowByName("Тарифы Тинькофф Мобайла");
         assertEquals(googleResults.getCurrentUrl(),
                 "https://www.tinkoff.ru/mobile-operator/tariffs/");
+        logger.info("Проверили URL");
     }
 }

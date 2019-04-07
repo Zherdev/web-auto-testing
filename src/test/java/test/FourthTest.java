@@ -7,6 +7,8 @@
 package test;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import page.TinkoffTariffPage;
 
 import static org.junit.Assert.assertEquals;
@@ -19,6 +21,8 @@ import static org.junit.Assert.assertNotEquals;
  * @author Ivan Zherdev
  */
 public class FourthTest extends BaseRunner {
+
+    private Logger logger = LoggerFactory.getLogger(FourthTest.class);
 
     @Test
     public void test1() {
@@ -40,6 +44,7 @@ public class FourthTest extends BaseRunner {
         krasnodarPrice = tinkoffTariff.getPrice();
 
         assertNotEquals(moscowPrice, krasnodarPrice);
+        logger.info("Цены не равны");
 
         tinkoffTariff.chooseAll();
         krasnodarPrice = tinkoffTariff.getPrice();
@@ -48,6 +53,7 @@ public class FourthTest extends BaseRunner {
         moscowPrice = tinkoffTariff.getPrice();
 
         assertEquals(moscowPrice, krasnodarPrice);
+        logger.info("Цены равны");
     }
 
 }
