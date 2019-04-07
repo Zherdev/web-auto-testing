@@ -17,11 +17,9 @@ import org.openqa.selenium.WebElement;
  */
 public class CheckBox {
 
-    private WebDriver driver;
     private WebElement checkbox;
 
     public CheckBox(WebDriver driver, String name) {
-        this.driver = driver;
         checkbox = driver.findElement(
                 By.xpath("//label[contains(text(), '" + name + "')]/..//input"));
     }

@@ -17,12 +17,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class TextInput {
 
-    private WebDriver driver;
     private WebElement field;
     private WebDriverWait wait;
 
     public TextInput(WebDriver driver, String name) {
-        this.driver = driver;
         field = driver.findElement(
                 By.xpath("//span[contains(text(), '" + name + "')]/../../input"));
         wait = new WebDriverWait(driver, 10);
