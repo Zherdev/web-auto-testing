@@ -1,7 +1,7 @@
-WebAutoTesting 1.1
+WebAutoTesting 1.2
 ==================
 
-Содержит два теста из ДЗ к шестой лекции и три теста из ДЗ к седьмой лекции.
+Содержит два теста из ДЗ к шестой лекции и три теста из ДЗ к седьмой лекции. Используется логгер logback.
 
 * ThirdTest - задание 2.1
 * FourthTest - задание 2.2
@@ -10,10 +10,10 @@ WebAutoTesting 1.1
 Запуск
 ------
 
-Для запуска в браузере Chrome выполните команду:
+Пример. Для запуска третьего теста в браузере Chrome выполните команду:
 
 ```
-mvn -Dtest=test.ThirdTest,test.FourthTest,test.FifthTest -Dbrowser=chrome test
+mvn -Dtest=test.ThirdTest test
 ```
 Автор
 -----
